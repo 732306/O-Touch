@@ -35,6 +35,35 @@ class Account extends CI_Controller {
 		$this->load->view('tienda/layouts/footer');
 	}
 
+	public function addAddress() {
+		$this->load->model('account_model');
+		/*$this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
+		$this->form_validation->set_rules('email_value', 'Email', 'trim|required|xss_clean');
+		$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
+		if ($this->form_validation->run() == FALSE) {
+			$this->load->view('registration_form');
+		} else {*/
+		$data = array(
+				'id_usu' => $this->session->id_usu,
+				'calle' => $this->input->post('inputCalle'),
+				'num' => $this->input->post('inputNumero'),
+				'puerta' => $this->input->post('inputPuerta'),
+				'ciudad' => $this->input->post('inputCiudad'),
+				'provincia' => $this->input->post('inputProvincia'),
+				'cp' => $this->input->post('inputCP'),
+				'pais' => $this->input->post('listaPais'),
+				'principal' => $this->input->post('inputPrincipal')
+			);
+		$result = $this->account_model->address_insert($data);
+		if ($result == false) {
+			$error_message = 'No se ha podido añadir la dirección.';
+			$this->session->set_flashdata('error_message', $error_message);
+			redirect('account/addresses','refresh');
+		} else {
+			redirect('account/addresses','refresh');
+		}
+	}
+
 	public function orders()
 	{	
 		$this->load->view('tienda/layouts/header');
