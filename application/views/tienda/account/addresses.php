@@ -53,71 +53,64 @@
         </button>
       </div>
       <div class="modal-body">
-	       <form class="profile-form p-2">
+	       <form action="<?php echo base_url();?>account/addAddress" class="profile-form p-2" method="POST" name="login">
 	       	<div class="row align-items-end">
-	       			<div class="col-md-12">
-		                <div class="form-group">
-		                	<label for="">Nombre *</label>
-		                  	<input type="text" class="form-control" placeholder="" required>
-		                </div>
-	                </div>
-	                <div class="w-100"></div>
 					<div class="col-md-12">
 		                <div class="form-group">
-		                	<label for="">Appelidos *</label>
-		                  	<input type="text" class="form-control" placeholder="" required>
+		                	<label for="inputCalle">Calle *</label>
+		                  	<input name="inputCalle" id="inputCalle" type="text" class="form-control" placeholder="" required>
 		                </div>
 	                </div>
 	                <div class="w-100"></div>
-					<div class="col-md-6">
+	                <div class="col-md-6">
 		                <div class="form-group">
-		                	<label for="">Calle *</label>
-		                  	<input type="text" class="form-control" placeholder="" required>
+		                	<label for="inputNumero">Número *</label>
+		                  	<input name="inputNumero" id="inputNumero" type="numeric" class="form-control" placeholder="" required>
 		                </div>
 	                </div>
-					<div class="col-md-6">
+	                <div class="col-md-6">
 		                <div class="form-group">
-		                	<label for="">Ciudad *</label>
-		                  	<input type="text" class="form-control" placeholder="" required>
+		                	<label for="inputPuerta">Puerta *</label>
+		                  	<input name="inputPuerta" id="inputPuerta" type="text" class="form-control" placeholder="" required>
 		                </div>
 	                </div>
 	                <div class="w-100"></div>
+	                <div class="col-md-6">
+		                <div class="form-group">
+		                	<label for="inputCiudad">Ciudad *</label>
+		                  	<input name="inputCiudad" id="inputCiudad" type="text" class="form-control" placeholder="" required>
+		                </div>
+	                </div>
                		<div class="col-md-6">
 		            	<div class="form-group">
-		                	<label for="">Provincia *</label>
-		                  	<input type="text" class="form-control" placeholder="" required>
+		                	<label for="inputProvincia">Provincia *</label>
+		                  	<input name="inputProvincia" id="inputProvincia" type="text" class="form-control" placeholder="" required>
 		                </div>
 		            </div>
+		            <div class="w-100"></div>
 		            <div class="col-md-6">
 		                <div class="form-group">
-		                	<label for="">CP</label>
-		                  	<input type="numeric" class="form-control" placeholder="">
+		                	<label for="inputCP">CP</label>
+		                  	<input name="inputCP" id="inputCP" type="numeric" class="form-control" placeholder="">
 		                </div>
 	              	</div>
-	              	<div class="w-100"></div>
 	              	<div class="col-md-6">
 		                <div class="form-group">
 		            		<label for="country">País *</label>
 		            		<div class="select-wrap">
 			                  <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-			                  <select name="" id="" class="form-control">
-			                  	<option value="">España</option>
-			                    <option value="">Portugal</option>
+			                  <select name="listaPais" id="listaPais" class="form-control">
+			                  	<option value="España">España</option>
+			                    <option value="Portugal">Portugal</option>
 			                  </select>
 		                	</div>
 		            	</div>
 	                </div>
-					<div class="col-md-6">
-		                <div class="form-group">
-		                	<label for="">Teléfono *</label>
-		                  	<input type="text" class="form-control" placeholder="" required>
-		                </div>
-	                </div>
 	                <div class="w-100"></div>
 	                <div class="col-md-12">
 	                	<div class="form-check">
-						  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-						  <label class="form-check-label" for="defaultCheck1">
+						  <input class="form-check-input" name="inputPrincipal" type="checkbox" value="1" id="inputPrincipal">
+						  <label class="form-check-label" for="inputPrincipal">
 						    Usar como mi dirección de envíos por defecto
 						  </label>
 						</div>
@@ -127,7 +120,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Guardar dirección</button>
+        <button type="button" class="btn btn-primary" onclick="login.submit()">Guardar dirección</button>
       </div>
     </div>
   </div>
