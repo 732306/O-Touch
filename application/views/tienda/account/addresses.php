@@ -1,6 +1,6 @@
 
 		
-		<div class="hero-wrap hero-bread" style="background-image: url('<?php echo base_url(); ?>assets/images/bg_6.jpg');">
+	<div class="hero-wrap hero-bread" style="background-image: url('<?php echo base_url(); ?>assets/images/bg_6.jpg');">
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
@@ -12,54 +12,47 @@
     </div>
 		
 	<section class="ftco-section-account">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-xl-12 ftco-animate">
-	          <div class="row mt-5 pt-3 d-flex">
-	          	<div class="col-md-3">
-	          		<div class="account-menu account-total bg-light p-3 p-md-4">
-	          			<h3 class="account-heading mb-4" style="margin-bottom: 0.1rem !important;">Página principal</h3>
-		          			<ul class="list-group-heading">
-							  <li class="list-group-item">Mis datos personales</li>
-							  <li class="list-group-item">Libreta de direcciones</li>
-							  <li class="list-group-item">Mis pedidos</li>
-							  <li class="list-group-item">Mis favoritos</li>
-							</ul>
-					</div>	
-	          	</div>
-	          	<div class="col-md-9">
-	          		<div class="account-intro bg-light p-3 p-md-4">
-	          			<h3 class="mb-4">LIBRETA DE DIRECCIONES</h3>	
-							<a href="#" class="btn btn-primary" style="padding: 10px 5px !important; width: 35%; " data-toggle="modal" data-target="#agregarDireccion">Añadir otra dirección</a>
-							<div class="">
-								<h2 class="account-heading-item mb-5" style="margin-bottom: 0.1rem !important;">DIRECCIONES PREDETERMINADA</h2>
-								<?php if (!empty($direcciones)) { ?>
-									<div class="row align-items-end">
-										<?php foreach($direcciones as $direccion): ?>
-											<div class="panel-panel-default">
-												<?php if ($direccion->principal == '1') { ?>
-													<div class="panel-body">Dirección de envío predeterminada</div>
-												<?php }
-												else { ?>
-													<div class="panel-body">Dirección de envío adicional</div>
-												<?php } ?>
-													<div class="panel-footer">
-														<p><?php echo strtoupper($this->session->username); ?>&nbsp;<?php echo strtoupper($this->session->lastname); ?></p>
-											       		<p>C/ <?php echo ucwords($direccion->calle); ?>,&nbsp;Nº<?php echo $direccion->num; ?>&nbsp;<?php echo $direccion->puerta; ?></p>
-											       		<p><?php echo ucwords($direccion->ciudad); ?>,&nbsp;<?php echo ucwords($direccion->provincia); ?>,&nbsp;<?php echo $direccion->cp; ?></p>
-											       		<p><?php echo ucwords($direccion->pais); ?><i class="edit-btn icon-edit float-right"></i></p>
-													</div>
-											</div>
-										<?php endforeach; ?>
-									</div>
-								<?php } ?>
+      	<div class="container">
+        	<div class="row justify-content-center">
+          		<div class="col-xl-12 ftco-animate">
+	          		<div class="row mt-5 pt-3 d-flex">
+
+	          			<!-- CARGA MENU LATERAL DE PERFIL -->
+	          			<?php $this->load->view('tienda/layouts/account_menu'); ?>
+	          	
+			          	<div class="col-md-8 col-sm-12">
+			          		<div class="account-intro bg-light p-3 p-md-4">
+			          			<h3 class="mb-4">LIBRETA DE DIRECCIONES</h3>	
+								<a href="#" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#agregarDireccion">Añadir otra dirección</a>
+								<div class="">
+									<h2 class="account-heading-item mb-5" style="margin-bottom: 0.1rem !important;">DIRECCIONES PREDETERMINADA</h2>
+									<?php if (!empty($direcciones)) { ?>
+										<div class="row align-items-end">
+											<?php foreach($direcciones as $direccion): ?>
+												<div class="panel-panel-default">
+													<?php if ($direccion->principal == '1') { ?>
+														<div class="panel-body">Dirección de envío predeterminada</div>
+													<?php }
+													else { ?>
+														<div class="panel-body">Dirección de envío adicional</div>
+													<?php } ?>
+														<div class="panel-footer">
+															<p><?php echo strtoupper($this->session->username); ?>&nbsp;<?php echo strtoupper($this->session->lastname); ?></p>
+												       		<p>C/ <?php echo ucwords($direccion->calle); ?>,&nbsp;Nº<?php echo $direccion->num; ?>&nbsp;<?php echo $direccion->puerta; ?></p>
+												       		<p><?php echo ucwords($direccion->ciudad); ?>,&nbsp;<?php echo ucwords($direccion->provincia); ?>,&nbsp;<?php echo $direccion->cp; ?></p>
+												       		<p><?php echo ucwords($direccion->pais); ?><i class="edit-btn icon-edit float-right"></i></p>
+														</div>
+												</div>
+											<?php endforeach; ?>
+										</div>
+									<?php } ?>
+								</div>
 							</div>
-					</div>
-	          	</div>
-	          </div>
-          </div> <!-- .col-md-8 -->
-        </div>
-      </div>
+			          	</div>
+			        </div>
+          		</div>
+        	</div>
+      	</div>
     </section> <!-- .section -->
 
 <!-- MODAL DIRECCIÓN -->

@@ -16,18 +16,11 @@
         <div class="row justify-content-center">
           <div class="col-xl-12 ftco-animate">
 	          <div class="row mt-5 pt-3 d-flex">
-	          	<div class="col-md-3  col-sm-12 mb-2">
-	          		<div class="account-menu account-total bg-light p-3 p-md-4">
-	          			<h3 class="account-heading mb-4" style="margin-bottom: 0.1rem !important;">Página principal</h3>
-		          			<ul class="list-group-heading">
-							  <li class="list-group-item">Mis datos personales</li>
-							  <li class="list-group-item">Libreta de direcciones</li>
-							  <li class="list-group-item">Mis pedidos</li>
-							  <li class="list-group-item">Mis favoritos</li>
-							</ul>
-					</div>	
-	          	</div>
-	          	<div class="col-md-9">
+
+	          	<!-- CARGA MENU LATERAL DE PERFIL -->
+	          	<?php $this->load->view('tienda/layouts/account_menu'); ?>
+
+	          	<div class="col-md-8 col-sm-12">
 	          		<div class="account-intro bg-light p-3 p-md-4">
 	          			<h3 class="mb-4">EDITAR INFORMACIÓN DE LA CUENTA</h3>
 							<p>Bienvenido a tu cuenta. Desde aquí puedes controlar tus datos, pedidos, listado de favoritos...</p>		

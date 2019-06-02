@@ -27,8 +27,8 @@ class Account extends CI_Controller {
 		$this->load->view('tienda/layouts/footer');
 	}	
 
-	public function addresses()
-	{	
+	public function addresses(){
+		
 		$this->load->model('account_model');
 		$data = array(
 			'direcciones' => $this->account_model->cargarDirecciones($this->session->id_usu)
