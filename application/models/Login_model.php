@@ -28,7 +28,8 @@ class Login_model extends CI_Model {
 
 	// Read data using username and password
 	public function login($data) {
-		$condition = "correo =" . "'" . $data['user_email'] . "' AND " . "password =" . "'" . $data['password'] . "'";
+		$condition = "correo =" . "'" . $data['user_email'] . "' AND " . "password =" 
+		. "'" . $data['password'] . "'";
 			$this->db->select('*');
 			$this->db->from('usuario');
 			$this->db->where($condition);

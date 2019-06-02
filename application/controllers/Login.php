@@ -5,14 +5,14 @@ class Login extends CI_Controller {
 
 
 	public function index(){
-		if ($this->session->logged_in == FALSE) {	
+		//if ($this->session->logged_in == FALSE) {	
 			$this->load->view('tienda/layouts/header');
 			$this->load->view('tienda/layouts/menu');
 			$this->load->view('tienda/login');
 			$this->load->view('tienda/layouts/footer');
-		} else {
-			redirect('tienda','refresh');
-		}
+		//} //else {
+			//redirect('tienda','refresh');
+		//}
 	}	
 
 

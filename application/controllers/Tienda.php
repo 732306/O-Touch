@@ -10,8 +10,8 @@ class Tienda extends CI_Controller {
 
 	public function index()
 	{	
-		$categorias = $this->tienda_model->cargarCategorias();
-		$this->session->set_userdata('titulos', $categorias);
+		//$categorias = $this->tienda_model->cargarCategorias();
+		//$this->session->set_userdata('titulos', $categorias);
 		$this->load->view('tienda/layouts/header');
 		$this->load->view('tienda/layouts/menu');
 		$this->load->view('tienda/index');
