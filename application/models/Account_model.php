@@ -20,6 +20,20 @@ class Account_model extends CI_Model {
 		$this->db->insert('dir_usuario', $data);
 		if ($this->db->affected_rows() > 0) {
 			return true;
+		} else return false;
+	}
+
+	public function cargarDirecciones($data){
+		$condition = "id_usu =" . "'" . $data['id_usu'] . "'";
+		$this->db->select('*');
+		$this->db->from('dir_usuario');
+		$this->db->where($condition);
+		$this->db->order_by('principal DESC');
+		$direcciones = $this->db->get();
+		if ($direcciones->num_rows() > 0) {
+			return $direcciones->result();
+		} else {
+			return false;
 		}
 	}
 }
