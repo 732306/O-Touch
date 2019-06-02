@@ -29,9 +29,13 @@ class Account extends CI_Controller {
 
 	public function addresses()
 	{	
+		$this->load->model('account_model');
+		$data = array(
+			'direcciones' => $this->account_model->cargarDirecciones($this->session->id_usu)
+		);
 		$this->load->view('tienda/layouts/header');
 		$this->load->view('tienda/layouts/menu');
-		$this->load->view('tienda/account/addresses');
+		$this->load->view('tienda/account/addresses', $data);
 		$this->load->view('tienda/layouts/footer');
 	}
 
@@ -45,11 +49,11 @@ class Account extends CI_Controller {
 		} else {*/
 		$data = array(
 				'id_usu' => $this->session->id_usu,
-				'calle' => $this->input->post('inputCalle'),
+				'calle' => strtolower($this->input->post('inputCalle')),
 				'num' => $this->input->post('inputNumero'),
-				'puerta' => $this->input->post('inputPuerta'),
-				'ciudad' => $this->input->post('inputCiudad'),
-				'provincia' => $this->input->post('inputProvincia'),
+				'puerta' => strtolower($this->input->post('inputPuerta')),
+				'ciudad' => strtolower($this->input->post('inputCiudad')),
+				'provincia' => strtolower($this->input->post('inputProvincia')),
 				'cp' => $this->input->post('inputCP'),
 				'pais' => $this->input->post('listaPais'),
 				'principal' => $this->input->post('inputPrincipal')
