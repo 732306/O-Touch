@@ -33,6 +33,26 @@
 							<a href="#" class="btn btn-primary" style="padding: 10px 5px !important; width: 35%; " data-toggle="modal" data-target="#agregarDireccion">Añadir otra dirección</a>
 							<div class="">
 								<h2 class="account-heading-item mb-5" style="margin-bottom: 0.1rem !important;">DIRECCIONES PREDETERMINADA</h2>
+								<?php if (!empty($direcciones)) { ?>
+									<div class="row align-items-end">
+										<?php foreach($direcciones as $direccion): ?>
+											<div class="panel-panel-default">
+												<?php if ($direccion->principal == '1') { ?>
+													<div class="panel-body">Dirección de envío predeterminada</div>
+												<?php }
+												else { ?>
+													<div class="panel-body">Dirección de envío adicional</div>
+												<?php } ?>
+													<div class="panel-footer">
+														<p><?php echo strtoupper($this->session->username); ?>&nbsp;<?php echo strtoupper($this->session->lastname); ?></p>
+											       		<p>C/ <?php echo ucwords($direccion->calle); ?>,&nbsp;Nº<?php echo $direccion->num; ?>&nbsp;<?php echo $direccion->puerta; ?></p>
+											       		<p><?php echo ucwords($direccion->ciudad); ?>,&nbsp;<?php echo ucwords($direccion->provincia); ?>,&nbsp;<?php echo $direccion->cp; ?></p>
+											       		<p><?php echo ucwords($direccion->pais); ?><i class="edit-btn icon-edit float-right"></i></p>
+													</div>
+											</div>
+										<?php endforeach; ?>
+									</div>
+								<?php } ?>
 							</div>
 					</div>
 	          	</div>
@@ -100,8 +120,8 @@
 		            		<div class="select-wrap">
 			                  <div class="icon"><span class="ion-ios-arrow-down"></span></div>
 			                  <select name="listaPais" id="listaPais" class="form-control">
-			                  	<option value="España">España</option>
-			                    <option value="Portugal">Portugal</option>
+			                  	<option value="españa">España</option>
+			                    <option value="portugal">Portugal</option>
 			                  </select>
 		                	</div>
 		            	</div>

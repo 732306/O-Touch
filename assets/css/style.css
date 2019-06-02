@@ -9213,3 +9213,52 @@ textarea.form-control {
   padding: 5px 5px;
   background-color: #f8f9fa;
 }
+
+.panel-panel-default {
+  display: block;
+  min-width: 30%;
+  float: left;
+  margin: left;
+  margin-top: 15px;
+  margin-left: 15px;
+  margin-bottom: 25px;
+  border: 1px solid #e6e9ed;
+  -webkit-border-radius: 0 3px 3px 0;
+  -moz-border-radius: 0 3px 3px 0;
+  -ms-border-radius: 0 3px 3px 0;
+  -o-border-radius: 0 3px 3px 0;
+  border-radius: 0 3px 3px 0;
+}
+
+.panel-body {
+  background: #f1b8c4;
+  color: #ffffff;
+  text-align: left;
+  padding: 0.5rem;
+}
+
+.panel-footer {
+  color: black;
+  text-align: left;
+  padding: 10px;
+}
+
+.edit-btn {
+  padding: 10px;
+  text-align: center;
+  width: 36px;
+  max-height: 36px;
+  font-size: 18px;
+  line-height: 18px;
+  display: inline-block;
+  color: #fff;
+  background: #f1b8c4;
+  cursor: pointer;
+
+  -webkit-border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -ms-border-radius: 3px 3px 3px 3px;
+  -o-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px;
+
+}
