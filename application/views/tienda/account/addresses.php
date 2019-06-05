@@ -78,13 +78,13 @@
 	                <div class="col-md-6">
 		                <div class="form-group">
 		                	<label for="inputNumero">Número *</label>
-		                  	<input name="inputNumero" id="inputNumero" type="numeric" class="form-control" placeholder="" required>
+		                  	<input name="inputNumero" id="inputNumero" type="numeric" class="form-control" placeholder="">
 		                </div>
 	                </div>
 	                <div class="col-md-6">
 		                <div class="form-group">
 		                	<label for="inputPuerta">Puerta *</label>
-		                  	<input name="inputPuerta" id="inputPuerta" type="text" class="form-control" placeholder="" required>
+		                  	<input name="inputPuerta" id="inputPuerta" type="text" class="form-control" placeholder="">
 		                </div>
 	                </div>
 	                <div class="w-100"></div>
