@@ -39,7 +39,7 @@
 
 	          	<?php }
 	          	else { ?>
-	          		<li class="nav-item"><a href="<?php echo base_url();?>login" class="nav-link"><span class="icon-user"></span> Iniciar sesión / Registrarse</a></li>
+	          		<li class="nav-item"><a href="<?php echo base_url();?>login" class="nav-link"><span class="icon-user"></span> Iniciar sesión</a></li>
 	          	<?php } ?>
 		          
 		        <li class="nav-item cta cta-colored"><a href="<?php echo base_url();?>cart" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>

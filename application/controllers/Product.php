@@ -10,12 +10,5 @@ class Product extends CI_Controller {
 		$this->load->view('tienda/product');
 		$this->load->view('tienda/layouts/footer');
 	}
-
-	public function shop() {
-		$this->load->view('tienda/layouts/header');
-		$this->load->view('tienda/layouts/menu');
-		$this->load->view('tienda/shop');
-		$this->load->view('tienda/layouts/footer');
-	}
 	
 }
