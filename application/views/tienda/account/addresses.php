@@ -5,7 +5,7 @@
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
             <h1 class="mb-0 bread">Mi Cuenta</h1>
-            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Inicio</a></span> <span>Perfil</span></p>
+            <p class="breadcrumbs"><span class="mr-2"><a href="<?php echo base_url(); ?>">Inicio</a></span> <span>Perfil</span></p>
           </div>
         </div>
       </div>
@@ -78,13 +78,13 @@
 	                <div class="col-md-6">
 		                <div class="form-group">
 		                	<label for="inputNumero">Número *</label>
-		                  	<input name="inputNumero" id="inputNumero" type="numeric" class="form-control" placeholder="" required>
+		                  	<input name="inputNumero" id="inputNumero" type="numeric" class="form-control" placeholder="">
 		                </div>
 	                </div>
 	                <div class="col-md-6">
 		                <div class="form-group">
 		                	<label for="inputPuerta">Puerta *</label>
-		                  	<input name="inputPuerta" id="inputPuerta" type="text" class="form-control" placeholder="" required>
+		                  	<input name="inputPuerta" id="inputPuerta" type="text" class="form-control" placeholder="">
 		                </div>
 	                </div>
 	                <div class="w-100"></div>
