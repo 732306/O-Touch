@@ -1,13 +1,26 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller {
+class Dashboard extends MY_Controller {
+
+	protected $access = "gestor";
+	//protected $access = array("gestor", "comercial");
+
+	public function __construct() {
+		parent::__construct();
+		$this->load->model("dashboard_model");
+	}
 
 	public function index()
 	{	
-		$this->load->view('dashboard/layouts/header');
-		$this->load->view('dashboard/layouts/aside');
-		$this->load->view('dashboard/admin/dashboard');
-		$this->load->view('dashboard/layouts/footer');
+		$data = array(
+			'usuarios' => $this->dashboard_model->cargarUsuarios()
+		);
+		$this->load->view('dashboard/admin/dashboard', $data);
+	}
+
+	function delete($id) {
+		$this->db->where('id', $id);
+		$this->db->delete('usuario');
 	}
 }

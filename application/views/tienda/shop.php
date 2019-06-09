@@ -48,7 +48,16 @@
                                         </div>
                                         <hr>
                                         <p class="bottom-area d-flex flex-wrap">
-                                            <a href="#"
+                                            <button type="button" 
+                                            class="btn btn-success btn-sm btn_add"
+                                            data-cod="<?php echo $row->cod_art; ?>"
+                                            data-precio="<?php echo $row->precio; ?>"
+                                            data-img="<?php echo $row->url_img; ?>"
+                                            data-titulo="<?php echo $row->titulo; ?>"
+                                            data-descripcion="<?php echo $row->descripcion; ?>" 
+                                            ><span>Añadir al carrito <i class="ion-ios-add ml-1"></i></span></button>
+                                            
+                                            <!-- <a href="#"
                                             name="add_cart"
                                             data-cod="<?php echo $row->cod_art; ?>"
                                             data-precio="<?php echo $row->precio; ?>"
@@ -56,8 +65,8 @@
                                             data-titulo="<?php echo $row->titulo; ?>"
                                             data-descripcion="<?php echo $row->descripcion; ?>"
                                             class="add-to-cart"><span>Añadir al carrito <i class="ion-ios-add ml-1"></i></span></a>
-                                            <!-- Cambia el "a" por un button -->
-                                            <a href="#" class="ml-auto"><span><i class="ion-ios-heart-empty"></i></span></a>
+
+                                            <a href="#" class="ml-auto"><span><i class="ion-ios-heart-empty"></i></span></a> -->
                                         </p>
                                     </div>
                                 </div>
@@ -88,9 +97,40 @@
     	
 </section>
 
-
-<script>
+  <script type="text/javascript">
     $(document).ready(function() {
+       $(document).on('click', '.btn_add', function() {
+            var articulo_cod = $(this).data("cod");
+            var articulo_precio = $(this).data("precio");
+            var articulo_img = $(this).data("img");
+            var articulo_titulo = $(this).data("titulo");
+            var articulo_descripcion = $(this).data("descripcion");
+            // en la vista de product-single si es necesario la cantidad, aqui no
+            //var cantidad = $('#' + cantidad).val();
+            //if (cantidad != '' && cantidad > 0) {
+                $.ajax({
+                url:"<?php echo base_url(); ?>cart/add",
+                method:"POST",
+                data:{
+                    articulo_cod:articulo_cod,
+                    articulo_img:articulo_img,
+                    articulo_titulo:articulo_titulo,
+                    articulo_descripcion:articulo_descripcion,
+                    //cantidad:cantidad,
+                    articulo_precio:articulo_precio},
+                success:function(data) {
+                    alert("Complemento agregado correctamente al carrito!");
+                    //$('#carrito').html(data);
+                    //$('#' + articulo_cod).val('');
+                }
+            });
+       });
+    } );
+  </script>
+
+<!--<script>
+    $(document).ready(function() {
+
         $('.add_cart').click(function() {
             var articulo_cod = $(this).data("cod");
             var articulo_precio = $(this).data("precio");
@@ -121,7 +161,7 @@
             }*/
         });
 
-        /*$('#carrito').load("<?php echo base_url(); ?>cart/load");
+        $('#carrito').load("<?php echo base_url(); ?>cart/load");
 
         $(document).on('click','.remove_inventory', function() {
             var cod_art = $(this).attr("id");
@@ -138,8 +178,8 @@
             } else {
                 return false;
             }
-        });*/
+        });
 
     });
-</script>
+</script> -->
 
