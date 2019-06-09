@@ -23,11 +23,10 @@
 			          	<div class="col-md-8 col-sm-12">
 			          		<div class="account-intro bg-light p-3 p-md-4">
 			          			<h3 class="mb-4">LIBRETA DE DIRECCIONES</h3>	
-								<a href="#" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#agregarDireccion">Añadir otra dirección</a>
+								<a href="#" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#agregarDireccion">Añadir nueva dirección</a>
 								<div class="">
-									<h2 class="account-heading-item mb-5" style="margin-bottom: 0.1rem !important;">DIRECCIONES PREDETERMINADA</h2>
 									<?php if (!empty($direcciones)) { ?>
-										<div class="row align-items-end">
+										<div class="row">
 											<?php foreach($direcciones as $direccion): ?>
 												<div class="panel-panel-default">
 													<?php if ($direccion->principal == '1') { ?>
@@ -40,7 +39,13 @@
 															<p><?php echo strtoupper($this->session->username); ?>&nbsp;<?php echo strtoupper($this->session->lastname); ?></p>
 												       		<p>C/ <?php echo ucwords($direccion->calle); ?>,&nbsp;Nº<?php echo $direccion->num; ?>&nbsp;<?php echo $direccion->puerta; ?></p>
 												       		<p><?php echo ucwords($direccion->ciudad); ?>,&nbsp;<?php echo ucwords($direccion->provincia); ?>,&nbsp;<?php echo $direccion->cp; ?></p>
-												       		<p><?php echo ucwords($direccion->pais); ?><i class="edit-btn icon-edit float-right"></i></p>
+												       		<p><?php echo ucwords($direccion->pais); ?>
+												       		<br>
+												       		
+												       		<button type="button" class="btn btn-outline-secondary">Editar</button>
+												       		<button type="button" class="btn btn-outline-danger">Borrar</button>
+												       	
+												       	</p>
 														</div>
 												</div>
 											<?php endforeach; ?>

@@ -29,7 +29,7 @@
 	                <li><a href="#" class="py-2 d-block">Política de privacidad</a></li>
 	              </ul>
 	              <ul class="list-unstyled">
-	                <li><a href="#" class="py-2 d-block">Contacto</a></li>
+	                <li><a href="<?php echo base_url();?>contact" class="py-2 d-block">Contacto</a></li>
 	              </ul>
 	            </div>
             </div>

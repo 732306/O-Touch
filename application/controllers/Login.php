@@ -5,33 +5,20 @@ class Login extends CI_Controller {
 
 
 	public function index(){
-		//if ($this->session->logged_in == FALSE) {	
+		if ($this->session->logged_in == FALSE) {	
 			$this->load->view('tienda/layouts/header');
 			$this->load->view('tienda/layouts/menu');
 			$this->load->view('tienda/login');
 			$this->load->view('tienda/layouts/footer');
-		//} //else {
-			//redirect('tienda','refresh');
-		//}
+		} else {
+			redirect('tienda','refresh');
+		}
 	}	
 
 
 	public function try_login() {
 		$this->load->model('login_model');
-		/*$this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
-		$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
-
-		if ($this->form_validation->run() == FALSE) {
-				$data = array(
-					'error_message' => 'Invalid Username or Password'
-				);
-				$this->load->view('tienda/layouts/header');
-				$this->load->view('tienda/layouts/menu');
-				$this->load->view('tienda/login',$data);
-				$this->load->view('tienda/layouts/footer');
-		} 
-
-		else {*/
+		
 			$data = array(
 				'user_email' => $this->input->post('inputUser'),
 				'password' => hash('sha512', $this->input->post('inputPass'))
@@ -47,6 +34,8 @@ class Login extends CI_Controller {
 					$this->session->set_userdata('email', $result[0]->correo);
 					$this->session->set_userdata('lastname', $result[0]->apellidos);
 					$this->session->set_userdata('rol', $result[0]->rol);
+					$this->session->set_userdata('nif', $result[0]->nif);
+					$this->session->set_userdata('genero', $result[0]->genero);
 					$this->session->set_userdata('logged_in', TRUE);
 					redirect('tienda','refresh');
 				}
@@ -56,13 +45,12 @@ class Login extends CI_Controller {
 				$this->session->set_flashdata('error_message', $error_message);
 				redirect('login','refresh');
 			}
-		/*}*/
+
 	}
 
 
-	// Validate and store registration data in database
 	public function new_user_registration() {
-		// Check validation for user input in SignUp form
+
 		$this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
 		$this->form_validation->set_rules('email_value', 'Email', 'trim|required|xss_clean');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');

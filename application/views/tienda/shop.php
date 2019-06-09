@@ -28,22 +28,12 @@
                             <div class="col-sm-12 col-md-12 col-lg-4 ftco-animate" >
                                 <div class="product">
                                     <a href="#" class="img-prod"><img class="img-fluid" src="<?php echo base_url(); ?>assets/images/<?php echo $row->url_img; ?>" alt="">
-                                        <span class="status">30%</span>
                                     </a>
                                     <div class="text py-3 px-3">
                                         <h3><a href="#"><?php echo $row->titulo; ?></a></h3>
                                         <div class="">
                                             <div class="pricing">
                                                 <p class="price"><span class="mr-2 price-dc"><?php echo $row->precio; ?>€</span><span class="price-sale">80.00€</span></p>
-                                            </div>
-                                            <div class="rating d-flex flex-wrap">
-                                                <p class="text-right">
-                                                    <span class="ion-ios-star-outline"></span>
-                                                    <span class="ion-ios-star-outline"></span>
-                                                    <span class="ion-ios-star-outline"></span>
-                                                    <span class="ion-ios-star-outline"></span>
-                                                    <span class="ion-ios-star-outline"></span>
-                                                </p>
                                             </div>
                                         </div>
                                         <hr>

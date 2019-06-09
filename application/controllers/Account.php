@@ -8,45 +8,56 @@ class Account extends CI_Controller {
 		$this->load->model("account_model");
 	}
 
-	public function index()
-	{	
-		$data = array(
-			'pedidos' => $this->account_model->cargarPedidos($this->session->id_usu)
-		);
-		$this->load->view('tienda/layouts/header');
-		$this->load->view('tienda/layouts/menu');
-		$this->load->view('tienda/account', $data);
-		$this->load->view('tienda/layouts/footer');
+	public function index(){
+		if ($this->session->logged_in == TRUE) {		
+			$data = array(
+				'pedidos' => $this->account_model->cargarPedidos($this->session->id_usu)
+			);
+			$this->load->view('tienda/layouts/header');
+			$this->load->view('tienda/layouts/menu');
+			$this->load->view('tienda/account', $data);
+			$this->load->view('tienda/layouts/footer');
+		}
+
+		else {
+			redirect('tienda','refresh');
+		}
 	}
 
-	public function profile()
-	{	
-		$this->load->view('tienda/layouts/header');
-		$this->load->view('tienda/layouts/menu');
-		$this->load->view('tienda/account/profile');
-		$this->load->view('tienda/layouts/footer');
+	public function profile(){	
+		if ($this->session->logged_in == TRUE) {
+			$this->load->view('tienda/layouts/header');
+			$this->load->view('tienda/layouts/menu');
+			$this->load->view('tienda/account/profile');
+			$this->load->view('tienda/layouts/footer');
+		}
+
+		else {
+			redirect('tienda','refresh');
+		}
+
 	}	
 
 	public function addresses(){
-		
-		$this->load->model('account_model');
-		$data = array(
-			'direcciones' => $this->account_model->cargarDirecciones($this->session->id_usu)
-		);
-		$this->load->view('tienda/layouts/header');
-		$this->load->view('tienda/layouts/menu');
-		$this->load->view('tienda/account/addresses', $data);
-		$this->load->view('tienda/layouts/footer');
+		if ($this->session->logged_in == TRUE) {
+			$this->load->model('account_model');
+			$data = array(
+				'direcciones' => $this->account_model->cargarDirecciones($this->session->id_usu)
+			);
+			$this->load->view('tienda/layouts/header');
+			$this->load->view('tienda/layouts/menu');
+			$this->load->view('tienda/account/addresses', $data);
+			$this->load->view('tienda/layouts/footer');
+
+		}
+		else {
+			redirect('tienda','refresh');
+		}
 	}
 
 	public function addAddress() {
 		$this->load->model('account_model');
-		/*$this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
-		$this->form_validation->set_rules('email_value', 'Email', 'trim|required|xss_clean');
-		$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
-		if ($this->form_validation->run() == FALSE) {
-			$this->load->view('registration_form');
-		} else {*/
+
 		$data = array(
 				'id_usu' => $this->session->id_usu,
 				'calle' => strtolower($this->input->post('inputCalle')),
@@ -66,13 +77,5 @@ class Account extends CI_Controller {
 		} else {
 			redirect('account/addresses','refresh');
 		}
-	}
-
-	public function orders()
-	{	
-		$this->load->view('tienda/layouts/header');
-		$this->load->view('tienda/layouts/menu');
-		$this->load->view('tienda/account/orders');
-		$this->load->view('tienda/layouts/footer');
 	}
 }

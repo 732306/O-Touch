@@ -5,7 +5,6 @@
   				<li class="list-group-item"><a href="<?php echo base_url();?>account" class="text-secondary">Inicio</a></li>	
 			  <li class="list-group-item"><a href="<?php echo base_url();?>account/profile" class="text-secondary">Mis datos personales</a></li>
 			  <li class="list-group-item"><a href="<?php echo base_url();?>account/addresses" class="text-secondary">Libreta de direcciones</a></li>
-			  <li class="list-group-item"><a href="<?php echo base_url();?>account/orders" class="text-secondary">Mis Pedidos</a></li>
 			</ul>
 	</div>	
 </div>

@@ -23,10 +23,10 @@
 	          	<div class="col-md-8 col-sm-12">
 	          		<div class="account-intro bg-light p-3 p-md-4">
 	          			<h3 class="mb-4">Hola, <?php echo strtoupper($this->session->username);?>&nbsp<?php echo strtoupper($this->session->lastname);?>!</h3>
-							<p>Desde "Mi Cuenta" puedes ver un resumen de tus actividades recientes y actualizar la información de tu cuenta. Selecciona un enlace inferior para ver o editar información.</p>		
+							<p>Desde "Mi Cuenta" puedes ver un resumen de tus pedidos recientes y actualizar la información de tu cuenta.</p>		
 							<a href="<?php echo base_url();?>account/profile" class="btn btn-primary" style="padding: 10px 5px !important; width: 35%; ">Editar datos</a>
 							<div class="">
-								<h2 class="account-heading-item mb-5" style="margin-bottom: 0.1rem !important;">Pedidos Recientes</h2>
+								<h2 class="account-heading-item mb-5" style="margin-bottom: 0.1rem !important;">Pedidos</h2>
 								<?php if (!empty($pedidos)) { ?>
 								<div class="table-responsive">
 									<table class="table-pedidos">
@@ -49,13 +49,13 @@
 										      	<td class=""><?php echo $pedido->precio; ?>€</td>
 										      	<?php 
 										          	if ($pedido->estado == 'enviado') { ?>
-										          		<td class="enviado">Enviado</td>
+										          		<td class="text-info">Enviado</td>
 									          	<?php }
 										          	else if ($pedido->estado == 'tramite') { ?>
-										          		<td class="">Trámite</td>
+										          		<td class="text-warning">Trámite</td>
 										        <?php }
 										          	else { ?>
-										          		<td class="entregado">Entregado</td>
+										          		<td class="text-success">Entregado</td>
 									          	<?php } ?>
 										      	<td class="">Ver pedido | Factura | Seguimiento envio</td>
 										      </tr><!-- END TR-->
