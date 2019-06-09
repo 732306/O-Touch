@@ -12,7 +12,6 @@ class Cart extends CI_Controller {
 	}
 
 	function add() {
-		$this->load->library("cart");
 		$data = array(
 			"cod_art"		=>	$_POST["articulo_cod"], 
 			"url_img"		=> 	$_POST["articulo_img"], 
@@ -22,7 +21,6 @@ class Cart extends CI_Controller {
 			"precio" 		=> 	$_POST["articulo_precio"] 
 		);
 		$this->cart->insert($data);
-		echo $this->view();
 	}
 
 	function load() {
@@ -30,7 +28,6 @@ class Cart extends CI_Controller {
 	}
 
 	function remove() {
-		$this->load->library("cart");
 		$cod_art = $_POST["cod_art"];
 		$data = array(
 			'cod_art' => $cod_art
@@ -42,7 +39,6 @@ class Cart extends CI_Controller {
 	}
 
 	function view() {
-		$this->load->library("cart");
 		$output = '';
 		$output .= '
 		<div class="row">
@@ -61,7 +57,7 @@ class Cart extends CI_Controller {
 					    </thead>
 		';
 		$count = 0;
-		foreach ($$this->cart->contents() as $item) {
+		foreach ($this->cart->contents() as $item) {
 			$counts++;
 			$output .= '
 					    <tbody>

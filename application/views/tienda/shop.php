@@ -4,8 +4,8 @@
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
-            <h1 class="mb-0 bread">Collection</h1>
-            <p class="breadcrumbs"><span class="mr-2"><a href="<?php echo base_url(); ?>">Home</a></span> <span>Product</span></p>
+            <h1 class="mb-0 bread">Tienda</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="<?php echo base_url(); ?>">Inicio</a></span> <span>Tienda</span></p>
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@
                                         <hr>
                                         <p class="bottom-area d-flex flex-wrap">
                                             <button type="button" 
-                                            class="btn btn-success btn-sm btn_add"
+                                            class="btn btn-primary btn-sm btn_add"
                                             data-cod="<?php echo $row->cod_art; ?>"
                                             data-precio="<?php echo $row->precio; ?>"
                                             data-img="<?php echo $row->url_img; ?>"
@@ -125,7 +125,7 @@
                 }
             });
        });
-    } );
+    });
   </script>
 
 <!--<script>

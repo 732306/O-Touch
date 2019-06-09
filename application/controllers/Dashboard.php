@@ -19,7 +19,7 @@ class Dashboard extends MY_Controller {
 		$this->load->view('dashboard/admin/dashboard', $data);
 	}
 
-	function delete($id) {
+	public function delete($id) {
 		$this->db->where('id', $id);
 		$this->db->delete('usuario');
 	}

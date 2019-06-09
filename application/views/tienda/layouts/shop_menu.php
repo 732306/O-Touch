@@ -4,7 +4,7 @@
   			<ul class="list-group-heading">
             	<?php if (!empty($this->session->titulos)) { ?>
             		<?php foreach($this->session->titulos as $categoria): ?>
-            			<li class="list-group-item"><a href="<?php echo base_url();?>shop/cat1" class="text-secondary"><?php echo ucwords($categoria->titulo); ?></a></li>
+            			<li class="list-group-item"><a href="<?php echo base_url();?>shop/category/<?php echo $categoria->id?>" class="text-secondary"><?php echo ucwords($categoria->titulo); ?></a></li>
             		<?php endforeach; ?>
             	<?php } ?>
 			</ul>

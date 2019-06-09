@@ -15,7 +15,9 @@
 	              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Complementos</a>
 	              <div class="dropdown-menu" aria-labelledby="dropdown04">
 	              	<?php foreach($this->session->titulos as $categoria): ?>
-						<a class="dropdown-item" href="#"><?php echo ucwords($categoria->titulo); ?></a>
+						<a class="dropdown-item" href="<?php echo base_url();?>shop/category/<?php echo $categoria->id?>" >
+							<?php echo ucwords($categoria->titulo); ?>
+						</a>
 	              	<?php endforeach; ?>
 	              	
 	              </div>
@@ -42,7 +44,11 @@
 	          		<li class="nav-item"><a href="<?php echo base_url();?>login" class="nav-link"><span class="icon-user"></span> Iniciar sesión</a></li>
 	          	<?php } ?>
 		          
-		        <li class="nav-item cta cta-colored"><a href="<?php echo base_url();?>cart" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
+		        <li class="nav-item cta cta-colored"><a href="<?php echo base_url();?>cart" class="nav-link"><span class="icon-shopping_cart"></span>
+
+		        	[<?php echo $this->cart->total_items() ?>]
+
+		        </a></li>
 
 	        </ul>
 	      </div>
