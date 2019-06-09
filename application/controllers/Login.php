@@ -46,6 +46,7 @@ class Login extends CI_Controller {
 					$this->session->set_userdata('id_usu', $result[0]->id);
 					$this->session->set_userdata('email', $result[0]->correo);
 					$this->session->set_userdata('lastname', $result[0]->apellidos);
+					$this->session->set_userdata('rol', $result[0]->rol);
 					$this->session->set_userdata('logged_in', TRUE);
 					redirect('tienda','refresh');
 				}
@@ -87,7 +88,7 @@ class Login extends CI_Controller {
 
 	public function logout(){
 
-	    $array_items = array('username', 'email', 'lastname', 'id_usu');
+	    $array_items = array('username', 'email', 'lastname', 'id_usu', 'rol');
 		$this->session->unset_userdata($array_items);
 		$this->session->set_userdata('logged_in', FALSE);
 
