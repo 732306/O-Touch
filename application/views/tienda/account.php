@@ -29,7 +29,7 @@
 								<h2 class="account-heading-item mb-5" style="margin-bottom: 0.1rem !important;">Pedidos</h2>
 								<?php if (!empty($pedidos)) { ?>
 								<div class="table-responsive">
-									<table class="table-pedidos">
+									<table id='tablaPedidos' class="table-pedidos">
 									    <thead class="thead-primary">
 									      <tr class="text-center">
 									        <th>Pedido #</th>
@@ -72,4 +72,6 @@
         </div>
       </div>
     </section> <!-- .section -->
+
+    
  

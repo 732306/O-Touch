@@ -22,7 +22,6 @@
 			          	<div class="col-md-8 col-sm-12">
 			          		<div class="account-intro bg-light p-3 p-md-4">
 			          			<h3 class="mb-4">Editar Dirección</h3>	
-								<?php echo var_dump($dir_usuario);?>
 								<form action="<?php echo base_url();?>account/saveAddress/<?php echo $dir_usuario->id_dir;?>" class="profile-form p-2" method="POST" name="login">
 	       	<div class="row align-items-end">
 					<div class="col-md-12">
@@ -91,9 +90,7 @@
 	                </div>
 
 	                <div class="col-md-12 mt-3">
-	                <button class="btn btn-primary" type="submit" style="padding: 10px 5px !important; width: 200px; ">
-							            	Guardar
-							            </button>
+	                <button class="btn btn-primary" type="submit" style="padding: 10px 5px !important; width: 200px; ">Guardar</button>
 				</div>
 	        </form>
 								

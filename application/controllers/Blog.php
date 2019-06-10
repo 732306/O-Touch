@@ -9,5 +9,15 @@ class Blog extends CI_Controller {
 		$this->load->view('tienda/layouts/menu');
 		$this->load->view('tienda/blog');
 		$this->load->view('tienda/layouts/footer');
-	}	
+	}
+
+	public function articulo_blog()
+	{	
+		$this->load->view('tienda/layouts/header');
+		$this->load->view('tienda/layouts/menu');
+		$this->load->view('tienda/blog-single');
+		$this->load->view('tienda/layouts/footer');
+	}
+
+
 }
