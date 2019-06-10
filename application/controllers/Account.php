@@ -6,6 +6,7 @@ class Account extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model("account_model");
+		$this->load->model("login_model");
 	}
 
 	public function index(){
@@ -26,9 +27,12 @@ class Account extends CI_Controller {
 
 	public function profile(){	
 		if ($this->session->logged_in == TRUE) {
+			
+			$data['usuario'] = $this->login_model->read_user_information($this->session->email)[0];
+
 			$this->load->view('tienda/layouts/header');
 			$this->load->view('tienda/layouts/menu');
-			$this->load->view('tienda/account/profile');
+			$this->load->view('tienda/account/profile',$data);
 			$this->load->view('tienda/layouts/footer');
 		}
 

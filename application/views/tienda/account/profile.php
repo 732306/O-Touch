@@ -32,14 +32,14 @@
 									                <div class="form-group">
 									                	<label for="">Nombre *</label>
 									                  	<input type="text" class="form-control" placeholder="nombre" 
-									                  	value="<?php echo $this->session->username; ?>" required>
+									                  	value="<?php echo $usuario->correo; ?>" required>
 									                  	
 									                </div>
 								              	</div>
 									            <div class="col-md-6">
 									                <div class="form-group">
 									                	<label for="">Apellidos *</label>
-									                  	<input type="text" class="form-control" placeholder="apellidos" value="<?php echo $this->session->lastname; ?>" required>
+									                  	<input type="text" class="form-control" placeholder="apellidos" value="<?php echo $usuario->apellidos; ?>" required>
 									                </div>
 								                </div>
 							               		<div class="w-100"></div>
@@ -50,13 +50,13 @@
 										                  <div class="icon"><span class="ion-ios-arrow-down"></span></div>
 										                  <select name="" id="" class="form-control">
 										                  	<option value="masculino"
-										                  	<?php if ( 'masculino' === $this->session->genero ) 
+										                  	<?php if ( 'masculino' === $usuario->genero ) 
 										                  		{ echo 'selected';}?>
 
 
 										                  	>Masculino</option>
-										                    <option value="femenino" <?php if ( 'femenino' === $this->session->genero ) 
-										                  		{ echo 'selected';}?>>Femenino</option>
+										                    <option value="femenino" <?php if ( 'femenino' === $usuario->genero ) 
+										                  		{ echo 'selected';}?> >Femenino</option>
 										                  </select>
 									                	</div>
 									            	</div>
@@ -64,14 +64,14 @@
 									            <div class="col-md-6">
 									                <div class="form-group">
 									                	<label for="">Correo</label>
-									                  	<input type="text" class="form-control" value="<?php echo $this->session->email; ?>"placeholder="correo">
+									                  	<input type="text" class="form-control" value="<?php echo $usuario->correo; ?>"placeholder="correo">
 									                </div>
 								              	</div>
 								              	<div class="w-100"></div>
 								              	<div class="col-md-6">
 									                <div class="form-group">
 									                	<label for="">CIF / NIF </label>
-									                  	<input type="text" class="form-control" value="<?php echo $this->session->nif; ?>"placeholder="NIF">
+									                  	<input type="text" class="form-control" value="<?php echo $usuario->nif; ?>"placeholder="NIF">
 									                </div>
 								              	</div>
 							            </div>

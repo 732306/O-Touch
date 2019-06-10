@@ -36,7 +36,10 @@
           </div>
 
           <div class="col-md-6 d-flex">
-          	<div id="map" class="bg-white"></div>
+          	<!--<div id="map" class="bg-white"></div>-->
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe style="embed-responsive-item" src="https://maps.google.es/maps?width=100%&amp;height=600&amp;hl=es&amp;q=Av.+España,+11,+1ºE,+24400+Ponferrada,+León&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+            </div>
           </div>
         </div>
         <div class="row d-flex mt-5 contact-info">

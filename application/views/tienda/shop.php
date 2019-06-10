@@ -5,7 +5,12 @@
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
             <h1 class="mb-0 bread">Tienda</h1>
-            <p class="breadcrumbs"><span class="mr-2"><a href="<?php echo base_url(); ?>">Inicio</a></span> <span>Tienda</span></p>
+            <p class="breadcrumbs"><span class="mr-2"><a href="<?php echo base_url(); ?>">Inicio</a></span> <span>Tienda</span> 
+                <?php if(isset($categoria)) {
+                    echo "<span class='mr-2'>:</span>";
+                    ?><span class="mr-2"><?php echo $categoria->titulo_cat; ?></span>
+                <?php } ?>
+            </p>
           </div>
         </div>
       </div>
@@ -20,32 +25,33 @@
                 <!-- CARGA MENU LATERAL DE PERFIL -->
                 <?php $this->load->view('tienda/layouts/shop_menu'); ?>
                 
-                <div class="col-md-10 col-sm-12">
+                <div class="col-md-9 col-sm-12">
                     <div class="container-fluid">
                         <div class="row">
                             <?php foreach($articulo as $row): ?>
                             <!-- PRODUCTO -->
                             <div class="col-sm-12 col-md-12 col-lg-4 ftco-animate" >
                                 <div class="product">
-                                    <a href="#" class="img-prod"><img class="img-fluid" src="<?php echo base_url(); ?>assets/images/<?php echo $row->url_img; ?>" alt="">
+                                    <a href="<?php echo base_url();?>shop/product/<?php echo $row->cod_art; ?>" class="img-prod"><img class="img-fluid" src="<?php echo base_url(); ?>assets/images/<?php echo $row->url_img; ?>" alt="">
                                     </a>
                                     <div class="text py-3 px-3">
-                                        <h3><a href="#"><?php echo $row->titulo; ?></a></h3>
+                                        <h3><a href="<?php echo base_url();?>shop/product/<?php echo $row->cod_art; ?>"><?php echo $row->titulo; ?></a></h3>
                                         <div class="">
                                             <div class="pricing">
-                                                <p class="price"><span class="mr-2 price-dc"><?php echo $row->precio; ?>€</span><span class="price-sale">80.00€</span></p>
+                                                <p class="price"><span class="price-sale">
+                                                <?php echo $row->precio; ?>€</span></p>
                                             </div>
                                         </div>
                                         <hr>
                                         <p class="bottom-area d-flex flex-wrap">
                                             <button type="button" 
-                                            class="btn btn-primary btn-sm btn_add"
+                                            class="w-100 btn btn-primary btn_add"
                                             data-cod="<?php echo $row->cod_art; ?>"
                                             data-precio="<?php echo $row->precio; ?>"
                                             data-img="<?php echo $row->url_img; ?>"
                                             data-titulo="<?php echo $row->titulo; ?>"
                                             data-descripcion="<?php echo $row->descripcion; ?>" 
-                                            ><span>Añadir al carrito <i class="ion-ios-add ml-1"></i></span></button>
+                                            ><span>Añadir al carrito</span></button>
                                             
                                             <!-- <a href="#"
                                             name="add_cart"

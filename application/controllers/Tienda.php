@@ -12,9 +12,13 @@ class Tienda extends CI_Controller {
 	{	
 		$categorias = $this->tienda_model->cargarCategorias();
 		$this->session->set_userdata('titulos', $categorias);
+
+		$this->load->model("shop_model");
+		$data["articulos"] = $this->shop_model->destacados();
+
 		$this->load->view('tienda/layouts/header');
 		$this->load->view('tienda/layouts/menu');
-		$this->load->view('tienda/index');
+		$this->load->view('tienda/index',$data);
 		$this->load->view('tienda/layouts/footer');
 	}
 }

@@ -4,27 +4,25 @@
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
-            <h1 class="mb-0 bread">Product Single</h1>
-            <p class="breadcrumbs"><span class="mr-2"><a href="<?php echo base_url(); ?>">Home</a></span> <span class="mr-2"><a href="index.html">Product</a></span> <span>Product Single</span></p>
+            <h1 class="mb-0 bread">Producto</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="<?php echo base_url(); ?>">Inicio</a></span> <span class="mr-2"><a href="<?php echo base_url(); ?>shop/category/<?php echo $articulo->id_cat?>"> <?php echo $articulo->titulo_cat ;?> </a></span> <span>Producto: <?php echo $articulo->titulo ;?></span></p>
           </div>
         </div>
       </div>
     </div>
-		
 		<section class="ftco-section bg-light">
     	<div class="container">
     		<div class="row">
     			<div class="col-lg-6 mb-5 ftco-animate">
-    				<a href="<?php echo base_url(); ?>assets/images/menu-2.jpg" class="image-popup"><img src="<?php echo base_url(); ?>assets/images/product-1.jpg" class="img-fluid" alt="Colorlib Template"></a>
+    				<a href="<?php echo base_url(); ?>assets/images/<?php echo $articulo->url_img; ?>" class="image-popup"><img src="<?php echo base_url(); ?>assets/images/<?php echo $articulo->url_img; ?>" class="img-fluid" alt="<?php echo $articulo->titulo ;?>"></a>
     			</div>
     			<div class="col-lg-6 product-details pl-md-5 ftco-animate">
-    				<h3>Young Woman Wearing Dress</h3>
-    				<p class="price"><span>$120.00</span></p>
-    				<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-    				<p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.
-						</p>
+    				<h3><?php echo $articulo->titulo ;?></h3>
+    				<p class="price"><span><?php echo $articulo->precio ;?> €</span></p>
+    				<p><?php echo $articulo->descripcion;?></p>
+    				
 						<div class="row mt-4">
-							<div class="col-md-6">
+							<div class="col-md-4">
 								<div class="form-group d-flex">
 		              <div class="select-wrap">
 	                  <div class="icon"><span class="ion-ios-arrow-down"></span></div>
@@ -37,8 +35,7 @@
 	                </div>
 		            </div>
 							</div>
-							<div class="w-100"></div>
-							<div class="input-group col-md-6 d-flex mb-3">
+							<div class="input-group col-md-4 d-flex mb-3">
 	             	<span class="input-group-btn mr-2">
 	                	<button type="button" class="quantity-left-minus btn"  data-type="minus" data-field="">
 	                   <i class="ion-ios-remove"></i>
@@ -51,32 +48,19 @@
 	                 </button>
 	             	</span>
 	          	</div>
+              <div class="input-group col-md-4 d-flex mb-3">
+                <button type="button"
+                class="btn-primary btn_add col-md-12"
+                data-cod="<?php echo $articulo->cod_art; ?>"
+                data-precio="<?php echo $articulo->precio; ?>"
+                data-img="<?php echo $articulo->url_img; ?>"
+                data-titulo="<?php echo $articulo->titulo; ?>"
+                data-descripcion="<?php echo $articulo->descripcion; ?>" 
+                >Añadir al carrito</button>
+              </div>
           	</div>
-          	<p><a href="cart.html" class="btn btn-primary py-3 px-5">Add to Cart</a></p>
+              
     			</div>
     		</div>
     	</div>
-    </section>
-
-		<section class="ftco-section-parallax">
-      <div class="parallax-img d-flex align-items-center">
-        <div class="container">
-          <div class="row d-flex justify-content-center py-5">
-            <div class="col-md-7 text-center heading-section ftco-animate">
-            	<h1 class="big">Subscribe</h1>
-              <h2>Subcribe to our Newsletter</h2>
-              <div class="row d-flex justify-content-center mt-5">
-                <div class="col-md-8">
-                  <form action="#" class="subscribe-form">
-                    <div class="form-group d-flex">
-                      <input type="text" class="form-control" placeholder="Enter email address">
-                      <input type="submit" value="Subscribe" class="submit px-3">
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>

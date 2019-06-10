@@ -14,9 +14,12 @@
 
 	              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Complementos</a>
 	              <div class="dropdown-menu" aria-labelledby="dropdown04">
+	              	<a class="dropdown-item" href="<?php echo base_url();?>shop/" >
+							Ver Todos
+						</a>
 	              	<?php foreach($this->session->titulos as $categoria): ?>
 						<a class="dropdown-item" href="<?php echo base_url();?>shop/category/<?php echo $categoria->id?>" >
-							<?php echo ucwords($categoria->titulo); ?>
+							<?php echo ucwords($categoria->titulo_cat); ?>
 						</a>
 	              	<?php endforeach; ?>
 	              	

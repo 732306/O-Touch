@@ -23,107 +23,54 @@
     <section class="ftco-section ftco-product">
     	<div class="container">
     		<div class="row justify-content-center mb-3 pb-3">
-          <div class="col-md-12 heading-section text-center ftco-animate">
-          	<h1 class="big">Destacados</h1>
-            <h2 class="mb-4">Destacados</h2>
-          </div>
-        </div>
+	          <div class="col-md-12 heading-section text-center ftco-animate">
+	          	<h1 class="big">Novedades</h1>
+	            <h2 class="mb-4">Novedades</h2>
+	          </div>
+        	</div>
+
     		<div class="row">
     			<div class="col-md-12">
     				<div class="product-slider owl-carousel ftco-animate">
-    					<div class="item">
-		    				<div class="product">
-		    					<a href="#" class="img-prod"><img class="img-fluid" src="<?php echo base_url(); ?>assets/images/product-8.jpg" alt="Colorlib Template">
-		    						<span class="status">30%</span>
-		    					</a>
-		    					<div class="text pt-3 px-3">
-		    						<h3><a href="#">Young Woman Wearing Dress</a></h3>
-		    						<div class="d-flex">
-		    							<div class="pricing">
-			    							<p class="price"><span class="mr-2 price-dc">$120.00</span><span class="price-sale">$80.00</span></p>
+    					<?php foreach($articulos as $item): ?>
+	    					<div class="item">
+			    				<div class="product">
+			    					<a href="<?php echo base_url();?>shop/product/<?php echo $item->cod_art; ?>" class="img-prod"><img class="img-fluid" src="<?php echo base_url(); ?>assets/images/<?php echo $item->url_img; ?>" alt="">
+                                    </a>
+			    					<div class="text pt-3 px-3">
+			    						<h3>
+			    							<a href="<?php echo base_url();?>shop/product/<?php echo $item->cod_art; ?>" >
+			    							<?php echo $item->titulo; ?>
+			    							</a>
+			    						</h3>
+			    						<div class="">
+			    							<div class="pricing">
+                                                <p class="price"><span class="price-sale">
+                                                <?php echo $item->precio; ?>€</span></p>
+
+                                                
+                                            </div>
+                                            <hr>
+                                                <button type="button" 
+                                            class="btn btn-primary btn-xl w-100 btn_add"
+                                            data-cod="<?php echo $item->cod_art; ?>"
+                                            data-precio="<?php echo $item->precio; ?>"
+                                            data-img="<?php echo $item->url_img; ?>"
+                                            data-titulo="<?php echo $item->titulo; ?>"
+                                            data-descripcion="<?php echo $item->descripcion; ?>" 
+                                            ><span>Añadir al carrito</span></button>
 			    						</div>
-			    						<div class="rating">
-			    							<p class="text-right">
-			    								<span class="ion-ios-star-outline"></span>
-			    								<span class="ion-ios-star-outline"></span>
-			    								<span class="ion-ios-star-outline"></span>
-			    								<span class="ion-ios-star-outline"></span>
-			    								<span class="ion-ios-star-outline"></span>
-			    							</p>
-			    						</div>
-		    						</div>
-		    					</div>
-		    				</div>
-	    				</div>
-	    				<div class="item">
-		    				<div class="product">
-		    					<a href="#" class="img-prod"><img class="img-fluid" src="<?php echo base_url(); ?>assets/images/product-9.jpg" alt="Colorlib Template"></a>
-		    					<div class="text pt-3 px-3">
-		    						<h3><a href="#">Young Woman Wearing Dress</a></h3>
-		    						<div class="d-flex">
-		    							<div class="pricing">
-				    						<p class="price"><span>$120.00</span></p>
-				    					</div>
-				    					<div class="rating">
-			    							<p class="text-right">
-			    								<span class="ion-ios-star-outline"></span>
-			    								<span class="ion-ios-star-outline"></span>
-			    								<span class="ion-ios-star-outline"></span>
-			    								<span class="ion-ios-star-outline"></span>
-			    								<span class="ion-ios-star-outline"></span>
-			    							</p>
-			    						</div>
+
+
 			    					</div>
-		    					</div>
+
+
+			    				</div>
 		    				</div>
-	    				</div>
-	    				<div class="item">
-		    				<div class="product">
-		    					<a href="#" class="img-prod"><img class="img-fluid" src="<?php echo base_url(); ?>assets/images/product-10.jpg" alt="Colorlib Template"></a>
-		    					<div class="text pt-3 px-3">
-		    						<h3><a href="#">Young Woman Wearing Dress</a></h3>
-		    						<div class="d-flex">
-		    							<div class="pricing">
-				    						<p class="price"><span>$120.00</span></p>
-				    					</div>
-				    					<div class="rating">
-			    							<p class="text-right">
-			    								<span class="ion-ios-star-outline"></span>
-			    								<span class="ion-ios-star-outline"></span>
-			    								<span class="ion-ios-star-outline"></span>
-			    								<span class="ion-ios-star-outline"></span>
-			    								<span class="ion-ios-star-outline"></span>
-			    							</p>
-			    						</div>
-			    					</div>
-		    					</div>
-		    				</div>
-	    				</div>
-	    				<div class="item">
-		    				<div class="product">
-		    					<a href="#" class="img-prod"><img class="img-fluid" src="<?php echo base_url(); ?>assets/images/product-11.jpg" alt="Colorlib Template"></a>
-		    					<div class="text pt-3 px-3">
-		    						<h3><a href="#">Young Woman Wearing Dress</a></h3>
-		    						<div class="d-flex">
-		    							<div class="pricing">
-				    						<p class="price"><span>$120.00</span></p>
-				    					</div>
-				    					<div class="rating">
-			    							<p class="text-right">
-			    								<span class="ion-ios-star-outline"></span>
-			    								<span class="ion-ios-star-outline"></span>
-			    								<span class="ion-ios-star-outline"></span>
-			    								<span class="ion-ios-star-outline"></span>
-			    								<span class="ion-ios-star-outline"></span>
-			    							</p>
-			    						</div>
-			    					</div>
-		    					</div>
-		    				</div>
-	    				</div>
+	    				<?php endforeach; ?>
+    				</div>
     			</div>
     		</div>
-    	</div>
     </section>
 
     <section class="ftco-section ftco-no-pb ftco-no-pt bg-light">
