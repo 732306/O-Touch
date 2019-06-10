@@ -1,5 +1,6 @@
 		
 	<div class="hero-wrap js-fullheight" style="background-image: url('assets/images/otouch.jpg');">
+
       <div class="overlay"></div><div class="overlay-right"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
@@ -19,6 +20,20 @@
     </div>
 
     <div class="goto-here"></div>
+
+
+    <?php 
+
+    if (isset($this->session->pedido_ok)){ ?>
+                    <div id'alert' class="col-md-12 alert alert-success alert-dismissible fade show" role="alert">
+                        <?php echo ($this->session->pedido_ok); ?>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    
+                  <?php } ?>
     
     <section class="ftco-section ftco-product">
     	<div class="container">
@@ -204,5 +219,37 @@
         </div>
       </div>
     </section>
+
+
+
+      <script type="text/javascript">
+    $(document).ready(function() {
+       $(document).on('click', '.btn_add', function(e) {
+            var articulo_cod = $(this).data("cod");
+            var articulo_precio = $(this).data("precio");
+            var articulo_img = $(this).data("img");
+            var articulo_titulo = $(this).data("titulo");
+            var articulo_descripcion = $(this).data("descripcion");
+
+            // en la vista de product-single si es necesario la cantidad, aqui no
+            //var cantidad = $('#' + cantidad).val();
+            //if (cantidad != '' && cantidad > 0) {
+                $.ajax({
+                url:"<?php echo base_url(); ?>cart/add",
+                method:"POST",
+                data:{
+                    articulo_cod:articulo_cod,
+                    articulo_img:articulo_img,
+                    articulo_titulo:articulo_titulo,
+                    articulo_descripcion:articulo_descripcion,
+                    cantidad:1,
+                    articulo_precio:articulo_precio},
+                success:function(data) {
+                  $('#cantidad_carrito').html(data); 
+                }
+            });
+       });
+    });
+  </script>
 
     

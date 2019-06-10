@@ -36,17 +36,7 @@
 		            </div>
 							</div>
 							<div class="input-group col-md-4 d-flex mb-3">
-	             	<span class="input-group-btn mr-2">
-	                	<button type="button" class="quantity-left-minus btn"  data-type="minus" data-field="">
-	                   <i class="ion-ios-remove"></i>
-	                	</button>
-	            		</span>
-	             	<input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="100">
-	             	<span class="input-group-btn ml-2">
-	                	<button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
-	                     <i class="ion-ios-add"></i>
-	                 </button>
-	             	</span>
+	             	<input type="number" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="100">
 	          	</div>
               <div class="input-group col-md-4 d-flex mb-3">
                 <button type="button"
@@ -64,3 +54,35 @@
     		</div>
     	</div>
     </section>
+
+
+          <script type="text/javascript">
+    $(document).ready(function() {
+       $(document).on('click', '.btn_add', function(e) {
+            var articulo_cod = $(this).data("cod");
+            var articulo_precio = $(this).data("precio");
+            var articulo_img = $(this).data("img");
+            var articulo_titulo = $(this).data("titulo");
+            var articulo_descripcion = $(this).data("descripcion");
+            var cantidad = $('#quantity').val();
+
+
+            if (cantidad != '' && cantidad > 0) {
+                $.ajax({
+                url:"<?php echo base_url(); ?>cart/add",
+                method:"POST",
+                data:{
+                    articulo_cod:articulo_cod,
+                    articulo_img:articulo_img,
+                    articulo_titulo:articulo_titulo,
+                    articulo_descripcion:articulo_descripcion,
+                    cantidad:cantidad,
+                    articulo_precio:articulo_precio},
+                success:function(data) {
+                  $('#cantidad_carrito').html(data); 
+                }
+              });
+            }
+        });
+    });
+  </script>

@@ -111,7 +111,7 @@ class Account extends CI_Controller {
 	  
 	  $parametros = array (
 	   "calle" => $this->input->post('calle'),
-	   "num" => $this->input->post('num'),
+	   "num" => $this->input->post('numero'),
 	   "puerta" => $this->input->post('puerta'),
 	   "cp" => $this->input->post('cp'),
 	   "ciudad" => $this->input->post('ciudad'),

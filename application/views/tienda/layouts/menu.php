@@ -48,9 +48,7 @@
 	          	<?php } ?>
 		          
 		        <li class="nav-item cta cta-colored"><a href="<?php echo base_url();?>cart" class="nav-link"><span class="icon-shopping_cart"></span>
-
-		        	[<?php echo $this->cart->total_items() ?>]
-
+		        	[<span id="cantidad_carrito"><?php echo $this->cart->total_items()?></span>]
 		        </a></li>
 
 	        </ul>

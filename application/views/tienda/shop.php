@@ -15,8 +15,8 @@
         </div>
       </div>
     </div>
-		
-	<section class="ftco-section bg-light">
+    	
+    <section class="ftco-section bg-light">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-12 col-12 ftco-animate">
@@ -24,7 +24,6 @@
                 
                 <!-- CARGA MENU LATERAL DE PERFIL -->
                 <?php $this->load->view('tienda/layouts/shop_menu'); ?>
-                
                 <div class="col-md-9 col-sm-12">
                     <div class="container-fluid">
                         <div class="row">
@@ -52,17 +51,6 @@
                                             data-titulo="<?php echo $row->titulo; ?>"
                                             data-descripcion="<?php echo $row->descripcion; ?>" 
                                             ><span>Añadir al carrito</span></button>
-                                            
-                                            <!-- <a href="#"
-                                            name="add_cart"
-                                            data-cod="<?php echo $row->cod_art; ?>"
-                                            data-precio="<?php echo $row->precio; ?>"
-                                            data-img="<?php echo $row->url_img; ?>"
-                                            data-titulo="<?php echo $row->titulo; ?>"
-                                            data-descripcion="<?php echo $row->descripcion; ?>"
-                                            class="add-to-cart"><span>Añadir al carrito <i class="ion-ios-add ml-1"></i></span></a>
-
-                                            <a href="#" class="ml-auto"><span><i class="ion-ios-heart-empty"></i></span></a> -->
                                         </p>
                                     </div>
                                 </div>
@@ -95,15 +83,13 @@
 
   <script type="text/javascript">
     $(document).ready(function() {
-       $(document).on('click', '.btn_add', function() {
+       $(document).on('click', '.btn_add', function(e) {
             var articulo_cod = $(this).data("cod");
             var articulo_precio = $(this).data("precio");
             var articulo_img = $(this).data("img");
             var articulo_titulo = $(this).data("titulo");
             var articulo_descripcion = $(this).data("descripcion");
-            // en la vista de product-single si es necesario la cantidad, aqui no
-            //var cantidad = $('#' + cantidad).val();
-            //if (cantidad != '' && cantidad > 0) {
+
                 $.ajax({
                 url:"<?php echo base_url(); ?>cart/add",
                 method:"POST",
@@ -112,70 +98,15 @@
                     articulo_img:articulo_img,
                     articulo_titulo:articulo_titulo,
                     articulo_descripcion:articulo_descripcion,
-                    //cantidad:cantidad,
-                    articulo_precio:articulo_precio},
+                    articulo_precio:articulo_precio,
+                    cantidad:1
+                },
                 success:function(data) {
-                    alert("Complemento agregado correctamente al carrito!");
-                    //$('#carrito').html(data);
-                    //$('#' + articulo_cod).val('');
+                    $('#cantidad_carrito').html(data);
                 }
             });
        });
     });
   </script>
 
-<!--<script>
-    $(document).ready(function() {
-
-        $('.add_cart').click(function() {
-            var articulo_cod = $(this).data("cod");
-            var articulo_precio = $(this).data("precio");
-            var articulo_img = $(this).data("img");
-            var articulo_titulo = $(this).data("titulo");
-            var articulo_descripcion = $(this).data("descripcion");
-            // en la vista de product-single si es necesario la cantidad, aqui no
-            //var cantidad = $('#' + cantidad).val();
-            //if (cantidad != '' && cantidad > 0) {
-                $.ajax({
-                url:"<?php echo base_url(); ?>cart/add",
-                method:"POST",
-                data:{
-                    articulo_cod:articulo_cod,
-                    articulo_img:articulo_img,
-                    articulo_titulo:articulo_titulo,
-                    articulo_descripcion:articulo_descripcion,
-                    //cantidad:cantidad,
-                    articulo_precio:articulo_precio},
-                success:function(data) {
-                    alert("Complemento agregado correctamente al carrito!");
-                    //$('#carrito').html(data);
-                    //$('#' + articulo_cod).val('');
-                }
-            });
-            /*} else {
-                alert("Por favor, ingresa una cantidad");
-            }*/
-        });
-
-        $('#carrito').load("<?php echo base_url(); ?>cart/load");
-
-        $(document).on('click','.remove_inventory', function() {
-            var cod_art = $(this).attr("id");
-            if (confirm("¿Deseas eliminar este complemento del carrito?")) {
-                $.ajax({
-                    url:"<?php echo base_url(); ?>cart/remove"
-                    method:"POST",
-                    data:{cod_art:cod_art},
-                    success:function(data) {
-                        alert("Complemento eliminado correctamente del carrrito!");
-                        //$('#carrito').html(data);
-                    }
-                });
-            } else {
-                return false;
-            }
-        });
-
-    });
-</script> -->
 

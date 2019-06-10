@@ -12,34 +12,73 @@
       </div>
     </div>
         
-    <section class="ftco-section ftco-cart">
-        <div class="container" id="carrito">
-            <h3 align="center">Tu carrito tiene 0 complemento(s).</h3>
-            <img src="<?php echo base_url(); ?>assets/images/carrito.svg" class="rounded mx-auto d-block" style="width: 15%;" alt="...">
+    <section class="ftco-section ftco-cart mt-0">
+        <div class="container" >
+                <div class="row">
+                    <div class="col-md-12 ftco-animate">
+                        <div class="cart-list" id="carrito"></div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-end" id="resumenCarrito">
+                    
+                </div>
         </div>
     </section>
+
 
 
 <script>
    $(document).ready(function() {
 
         $('#carrito').load("<?php echo base_url(); ?>cart/load");
+        $('#resumenCarrito').load("<?php echo base_url(); ?>cart/loadResumen");
 
         $(document).on('click','.remove_inventory', function() {
-            var cod_art = $(this).attr("id");
+            var id = $(this).attr("id");
             if (confirm("¿Deseas eliminar este complemento del carrito?")) {
                 $.ajax({
-                    url:"<?php echo base_url(); ?>cart/remove"
+                    url:"<?php echo base_url(); ?>cart/remove",
                     method:"POST",
-                    data:{cod_art:cod_art},
+                    data:{id:id},
                     success:function(data) {
-                        alert("Complemento eliminado correctamente del carrrito!");
-                        //$('#carrito').html(data);
+                        $('#cantidad_carrito').html(data);
+                        $('#carrito').load("<?php echo base_url(); ?>cart/load");
+
+                        if(data =='0'){
+                            $('#resumenCarrito').hide();
+                        }
+                        else {
+                            $('#resumenCarrito').load("<?php echo base_url(); ?>cart/loadResumen");}
                     }
                 });
             } else {
                 return false;
             }
+        });
+
+        $(document).on('click','.update_inventory', function() {
+            var id = $(this).attr("id");
+            var cantidad = $('#quantity'+id).val();
+            $.ajax({
+                url:"<?php echo base_url(); ?>cart/update_qty",
+                method:"POST",
+                data:{
+                    id:id,
+                    cantidad:cantidad
+                },
+                success:function(data) {
+                    $('#cantidad_carrito').html(data);
+                    $('#carrito').load("<?php echo base_url(); ?>cart/load");
+
+                    if(data =='0'){
+                        $('#resumenCarrito').hide();
+                    }
+                    else {
+                        $('#resumenCarrito').load("<?php echo base_url(); ?>cart/loadResumen");}
+                }
+            });
+                        
         });
 
     });    

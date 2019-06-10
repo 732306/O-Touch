@@ -77,6 +77,7 @@ class Login extends CI_Controller {
 	    $array_items = array('username', 'email', 'lastname', 'id_usu', 'rol');
 		$this->session->unset_userdata($array_items);
 		$this->session->set_userdata('logged_in', FALSE);
+		$this->cart->destroy();
 
 	    redirect('tienda','refresh');
 	}

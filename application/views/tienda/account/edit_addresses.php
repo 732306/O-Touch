@@ -34,7 +34,7 @@
 	                <div class="col-md-6">
 		                <div class="form-group">
 		                	<label for="inputNumero">Número *</label>
-		                  	<input value="<?php echo $dir_usuario->num?>" name="numero" id="inputNumero" type="numeric" class="form-control" placeholder="">
+		                  	<input value="<?php echo $dir_usuario->num?>" name="numero" id="numero" type="numeric" class="form-control" placeholder="">
 		                </div>
 	                </div>
 	                <div class="col-md-6">
