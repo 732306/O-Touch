@@ -43,7 +43,9 @@
 												       		<br>
 												       		
 												       		<button type="button" class="btn btn-outline-secondary">Editar</button>
-												       		<button type="button" class="btn btn-outline-danger">Borrar</button>
+
+
+												       		<a href="<?php echo base_url(); ?>/account/deleteAddress/<?php echo ucwords($direccion->id_dir); ?>" class="btn btn-outline-danger">Borrar</a>
 												       	
 												       	</p>
 														</div>

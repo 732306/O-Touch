@@ -24,6 +24,10 @@ class Account_model extends CI_Model {
 		} else return false;
 	}
 
+	public function address_delete($id) {
+		$this->db->delete('dir_usuario', $id); 
+	}
+
 	public function cargarDirecciones($data){
 		$condition = "id_usu =" . "'" . $data . "'";
 		$this->db->select('*');

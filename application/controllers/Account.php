@@ -82,4 +82,14 @@ class Account extends CI_Controller {
 			redirect('account/addresses','refresh');
 		}
 	}
+
+	public function deleteAddress($id){
+		$parametro = array (
+   			"id_dir" => $id
+  		);
+
+		$this->account_model->address_delete($parametro);
+
+		redirect('account/addresses','refresh');
+	}
 }
