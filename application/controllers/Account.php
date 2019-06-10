@@ -28,7 +28,7 @@ class Account extends CI_Controller {
 	public function profile(){	
 		if ($this->session->logged_in == TRUE) {
 			
-			$data['usuario'] = $this->login_model->read_user_information($this->session->email)[0];
+			$data['usuario'] = $this->login_model->read_user_information_id($this->session->id_usu)[0];
 
 			$this->load->view('tienda/layouts/header');
 			$this->load->view('tienda/layouts/menu');
@@ -83,6 +83,47 @@ class Account extends CI_Controller {
 		}
 	}
 
+	public function editAddress($id) {
+		  $data["dir_usuario"] =  $this->account_model->address_get($id)[0];
+
+		  $this->load->view('tienda/layouts/header');
+			$this->load->view('tienda/layouts/menu');
+		  $this->load->view("tienda/account/edit_addresses", $data);
+		  $this->load->view('tienda/layouts/footer');
+ 	}
+
+ 	public function saveProfile($id){
+	  
+	  $parametros = array (
+	   "nombre" => $this->input->post('nombre'),
+	   "apellidos" => $this->input->post('apellidos'),
+	   "nif" => $this->input->post('nif'),
+	   "correo" => $this->input->post('correo'),
+	   "genero" => $this->input->post('genero'),
+	  );
+	  
+	   $this->account_model->profile_update($parametros, $id);  
+
+	   redirect('account/profile','refresh');
+	}
+
+	public function saveAddress($id){
+	  
+	  $parametros = array (
+	   "calle" => $this->input->post('calle'),
+	   "num" => $this->input->post('num'),
+	   "puerta" => $this->input->post('puerta'),
+	   "cp" => $this->input->post('cp'),
+	   "ciudad" => $this->input->post('ciudad'),
+	   "provincia" => $this->input->post('provincia'),
+	   "pais" => $this->input->post('pais'),
+	  );
+	  
+	   $this->account_model->address_update($parametros, $id);  
+
+	   redirect('account/addresses','refresh');
+	}
+
 	public function deleteAddress($id){
 		$parametro = array (
    			"id_dir" => $id
@@ -92,4 +133,5 @@ class Account extends CI_Controller {
 
 		redirect('account/addresses','refresh');
 	}
+
 }

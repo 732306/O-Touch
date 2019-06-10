@@ -42,7 +42,7 @@
 												       		<p><?php echo ucwords($direccion->pais); ?>
 												       		<br>
 												       		
-												       		<button type="button" class="btn btn-outline-secondary">Editar</button>
+												       		<a href="<?php echo base_url(); ?>account/editAddress/<?php echo ucwords($direccion->id_dir); ?>" class="btn btn-outline-secondary" >Editar</a>
 
 
 												       		<a href="<?php echo base_url(); ?>/account/deleteAddress/<?php echo ucwords($direccion->id_dir); ?>" class="btn btn-outline-danger">Borrar</a>
@@ -145,4 +145,5 @@
     </div>
   </div>
 </div>
+
  

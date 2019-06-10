@@ -26,20 +26,23 @@
 							<p>Desde "Mi Cuenta" puedes ver un resumen de tus pedidos recientes y actualizar la información de tu cuenta.</p>			
 							<div class="">
 								<h2 class="account-heading-item mb-5" style="margin-bottom: 0.1rem !important;">MIS DATOS PERSONALES</h2>
-								<form action="#" class="profile-form bg-light p-1">
+								<form action="<?php echo base_url();?>account/saveProfile/<?php echo $usuario->id;?>" method='POST' class="profile-form bg-light p-1">
 							          	<div class="row align-items-end">
 								          		<div class="col-md-6">
 									                <div class="form-group">
 									                	<label for="">Nombre *</label>
 									                  	<input type="text" class="form-control" placeholder="nombre" 
-									                  	value="<?php echo $usuario->correo; ?>" required>
+									                  	name='nombre'
+									                  	value="<?php echo $usuario->nombre; ?>" required>
 									                  	
 									                </div>
 								              	</div>
 									            <div class="col-md-6">
 									                <div class="form-group">
 									                	<label for="">Apellidos *</label>
-									                  	<input type="text" class="form-control" placeholder="apellidos" value="<?php echo $usuario->apellidos; ?>" required>
+									                  	<input type="text" class="form-control" placeholder="apellidos" 
+									                  	name='apellidos'
+									                  	value="<?php echo $usuario->apellidos; ?>" required>
 									                </div>
 								                </div>
 							               		<div class="w-100"></div>
@@ -48,7 +51,7 @@
 									            		<label for="country">Género *</label>
 									            		<div class="select-wrap">
 										                  <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-										                  <select name="" id="" class="form-control">
+										                  <select name="genero" class="form-control">
 										                  	<option value="masculino"
 										                  	<?php if ( 'masculino' === $usuario->genero ) 
 										                  		{ echo 'selected';}?>
@@ -64,18 +67,24 @@
 									            <div class="col-md-6">
 									                <div class="form-group">
 									                	<label for="">Correo</label>
-									                  	<input type="text" class="form-control" value="<?php echo $usuario->correo; ?>"placeholder="correo">
+									                  	<input readonly type="text" class="form-control" 
+									                  	name='correo'
+									                  	value="<?php echo $usuario->correo; ?>"placeholder="correo">
 									                </div>
 								              	</div>
 								              	<div class="w-100"></div>
 								              	<div class="col-md-6">
 									                <div class="form-group">
 									                	<label for="">CIF / NIF </label>
-									                  	<input type="text" class="form-control" value="<?php echo $usuario->nif; ?>"placeholder="NIF">
+									                  	<input type="text" class="form-control" 
+									                  	name='nif'
+									                  	value="<?php echo $usuario->nif; ?>"placeholder="NIF">
 									                </div>
 								              	</div>
 							            </div>
-							            <a href="#" class="btn btn-primary" style="padding: 10px 5px !important; width: 200px; ">Guardar</a>
+							            <button class="btn btn-primary" type="submit" style="padding: 10px 5px !important; width: 200px; ">
+							            	Guardar
+							            </button>
 	          					</form><!-- END -->
 							</div>
 					</div>
